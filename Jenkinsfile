@@ -45,8 +45,6 @@ ADD gameoflife.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh", "run"]
 EXPOSE 8080
 EOT
-sudo docker build -t webimage:$BUILD_NUMBER .
-sudo docker container run -itd --name webserver$BUILD_NUMBER -p 8080 webimage:$BUILD_NUMBER'''
       }
     }
   }
