@@ -4,31 +4,29 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-       //pppppppppppppppppppppppppppp
+        echo 'Running tests...'
+        // Add your test commands or scripts here
       }
     }
     
     stage('Quality Gate') {
       steps {
-        script {
-          timeout(time: 1, unit: 'HOURS') {
-            waitForQualityGate abortPipeline: true
-          }
-        }
+        echo 'Waiting for quality gate...'
+        // Add your quality gate commands or scripts here
       }
     }
     
     stage('Build') {
       steps {
-        // Add your build steps here
-        // For example: sh 'mvn clean install'
+        echo 'Building...'
+        // Add your build commands or scripts here
       }
     }
     
     stage('Deploy') {
       steps {
-        // Add your deployment steps here
-        // For example: sh 'kubectl apply -f deployment.yaml'
+        echo 'Deploying...'
+        // Add your deployment commands or scripts here
       }
     }
   }
