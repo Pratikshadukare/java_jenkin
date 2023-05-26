@@ -11,8 +11,11 @@ pipeline {
     
     stage('Quality Gate') {
       steps {
-        echo 'Waiting for quality gate...'
-        // Add your quality gate commands or scripts here
+        script {
+          timeout(time: 1, unit: 'HOURS') {
+            waitForQualityGate abortPipeline: true
+          }
+        }
       }
     }
     
