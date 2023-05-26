@@ -14,5 +14,27 @@ pipeline {
         }
       }
     }
+    
+    stage('Quality Gate') {
+      steps {
+        timeout(time: 1, unit: 'HOURS') {
+          waitForQualityGate()
+        }
+      }
+    }
+    
+    stage('Build') {
+      steps {
+        // Add your build steps here
+        // For example: sh 'mvn clean install'
+      }
+    }
+    
+    stage('Deploy') {
+      steps {
+        // Add your deployment steps here
+        // For example: sh 'kubectl apply -f deployment.yaml'
+      }
+    }
   }
 }
