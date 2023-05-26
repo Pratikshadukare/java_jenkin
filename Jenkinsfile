@@ -4,7 +4,12 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-      //pppppppppppppppppppppppppppppppp
+        script {
+          sh 'sonar-scanner \
+            -X \
+            -D sonar.projectKey=javaPipeline \
+            -D sonar.projectName=Unreal-Engine-Project1'
+        }
       }
     }
     
