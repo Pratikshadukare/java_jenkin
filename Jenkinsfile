@@ -8,6 +8,7 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarQube') {
           sh "${SCANNER_HOME}/bin/sonar-scanner \
+            -X \
             -D sonar.projectKey=javaPipeline \
             -D sonar.projectName=Unreal-Engine-Project1"
         }
